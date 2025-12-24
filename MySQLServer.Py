@@ -1,18 +1,17 @@
-import mysql.connector 
+import mysql.connector
 
 def create_database():
     try:
-        # Connect to MySQL server
+        # Connect to MySQL
         mydb = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="4242@Wako" 
+            password="4242@Wako"
         )
         cursor = mydb.cursor()
 
-        # Create database without using SELECT or SHOW
+        # Create database
         cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
-        
         print("Database 'alx_book_store' created successfully!")
 
     except mysql.connector.Error as err:
@@ -23,5 +22,5 @@ def create_database():
             cursor.close()
             mydb.close()
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     create_database()
